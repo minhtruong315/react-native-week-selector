@@ -84,12 +84,12 @@ class WeekSelector extends PureComponent<Props, State> {
 
     const { renderPreviousSelector } = this.props;
     return (
-      <TouchableOpacity onPress={this.onPreviousPress}>
+      <TouchableOpacity onPress={this.onPreviousPress} hitSlop={{ top: 5, left: 5, right: 5, bottom: 5 }}>
         {renderPreviousSelector ? (
           renderPreviousSelector()
         ) : (
-          <Image source={require('./images/left-arrow-black.png')} />
-        )}
+            <Image source={require('./images/left-arrow-black.png')} style={{ width: 15, height: 15, resizeMode: 'contain' }} />
+          )}
       </TouchableOpacity>
     );
   };
@@ -101,12 +101,12 @@ class WeekSelector extends PureComponent<Props, State> {
 
     const { renderNextSelector } = this.props;
     return (
-      <TouchableOpacity onPress={this.onNextPress}>
+      <TouchableOpacity onPress={this.onNextPress} hitSlop={{ top: 5, left: 5, right: 5, bottom: 5 }}>
         {renderNextSelector ? (
           renderNextSelector()
         ) : (
-          <Image source={require('./images/right-arrow-black.png')} />
-        )}
+            <Image source={require('./images/right-arrow-black.png')} style={{ width: 15, height: 15, resizeMode: 'contain' }} />
+          )}
       </TouchableOpacity>
     );
   };
@@ -166,9 +166,10 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   selectorContainer: {
-    width: 32
   },
-  dateContainer: {},
+  dateContainer: {
+    marginHorizontal: 20
+  },
   text: {
     alignSelf: 'center'
   }
